@@ -19,7 +19,7 @@ After creating a task, a message `Task created` is printed. The message can also
 ```
 http://challenge.nahamcon.com:PORT/?success=Task%20created
 ```
-
+{% raw %}
 The parameter is Vulnerable to **SSTI**
 
 ![ssti](https://raw.githubusercontent.com/jmrcsnchz/NahamCon_CTF_2023_Writeups/main/Obligatory/ssti.png)
@@ -27,7 +27,7 @@ The parameter is Vulnerable to **SSTI**
 ```
 http://challenge.nahamcon.com:31129/?success={{7*7}}
 ```
-{% raw %}
+
 I tried to leak Config items with `{{config.items()}}`, but is blocked by the filter
 
 ![](https://raw.githubusercontent.com/jmrcsnchz/NahamCon_CTF_2023_Writeups/main/Obligatory/config-waf.png)
