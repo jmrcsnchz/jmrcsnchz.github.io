@@ -32,7 +32,9 @@ I tried to leak Config items with `{{config.items()}}`, but is blocked by the fi
 
 ![](https://raw.githubusercontent.com/jmrcsnchz/NahamCon_CTF_2023_Writeups/main/Obligatory/config-waf.png)
 
-Bypassed with{% raw % } `{{self|attr("\x5f\x5fdict\x5f\x5f")}}` {% endraw % }
+{% raw % }
+Bypassed with `{{self|attr("\x5f\x5fdict\x5f\x5f")}}` 
+{% endraw % }
 
 ![](https://raw.githubusercontent.com/jmrcsnchz/NahamCon_CTF_2023_Writeups/main/Obligatory/waf-bypass.png)
 
