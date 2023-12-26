@@ -2,7 +2,7 @@
 title: Obliagtory - NahamconCTF 2023
 date: 2023-06-18
 categories: [CTF Writeups]
-tags: [CTF][NahamconCTF 2023]
+tags: [CTF]
 ---
 
 NahamCon CTF 2023
