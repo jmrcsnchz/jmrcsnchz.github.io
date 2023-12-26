@@ -14,12 +14,12 @@ timezone: Asia/Shanghai
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # ↓ --------------------------
 
-title: Chirpy # the main title
+title: Juan Marco Sanchez # the main title
 
-tagline: A text-focused Jekyll theme # it will display as the sub-title
+tagline: Penetration Tester # it will display as the sub-title
 
 description: >- # used by seo meta and the atom feed
-  A minimal, responsive and feature-rich Jekyll theme for technical writing.
+  Security Consultant based in Manila, Philippines.
 
 # Fill in the protocol & hostname for your site.
 # e.g. 'https://username.github.io', note that it does not end with a '/'.
@@ -28,8 +28,7 @@ url: "https://jmrcsnchz.github.io"
 github:
   username: jmrcsnchz # change to your github username
 
-twitter:
-  username: # change to your twitter username
+
 
 social:
   # Change to your full name.
@@ -39,7 +38,7 @@ social:
   links:
     # The first element serves as the copyright owner's link
     #- https://twitter.com/username # change to your twitter homepage
-    - https://github.com/username # change to your github homepage
+    - https://github.com/jmrcsnchz # change to your github homepage
     # Uncomment below to add more social links
     # - https://www.facebook.com/username
     - https://www.linkedin.com/in/juanmarcosanchez
@@ -63,7 +62,7 @@ google_analytics:
 #     light  - Use the light color scheme
 #     dark   - Use the dark color scheme
 #
-theme_mode: # [light|dark]
+theme_mode: dark
 
 # The CDN endpoint for images.
 # Notice that once it is assigned, the CDN url
@@ -73,7 +72,7 @@ theme_mode: # [light|dark]
 img_cdn:
 
 # the avatar on sidebar, support local or CORS resources
-avatar:
+avatar: https://tryhackme-images.s3.amazonaws.com/user-avatars/c4c5a25aa8b166a45e964e7c04bbb282.png
 
 # boolean type, the global switch for TOC in posts.
 toc: true
