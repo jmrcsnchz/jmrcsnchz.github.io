@@ -4,7 +4,9 @@ icon: fas fa-info-circle
 order: 4
 ---
 
-Currently working as a security consultant for NCC Group. I've been doing penetration tests and security assessments for 3 years with focus on web application security. My articles will mostly be about security research, CTFs, bug bounty writeups, and certification reviews.
+Currently working as a security consultant for NCC Group. I've been doing penetration tests and security assessments for 3 years with focus on web application security. This blog site is made for fun and informal purposes only, and does not represent the company I work at in any way. My articles will mostly be about security research, CTFs, bug bounty writeups, and certification reviews. 
+
+I also would like to thank my girlfriend for designing the avatar used in this blog site 💕
 
 ## Author of the following CVEs:
 - CVE-2023-30854
