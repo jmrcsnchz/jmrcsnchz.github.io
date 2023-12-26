@@ -27,12 +27,12 @@ The parameter is Vulnerable to **SSTI**
 ```
 http://challenge.nahamcon.com:31129/?success={{7*7}}
 ```
-
+{% raw %}
 I tried to leak Config items with `{{config.items()}}`, but is blocked by the filter
 
 ![](https://raw.githubusercontent.com/jmrcsnchz/NahamCon_CTF_2023_Writeups/main/Obligatory/config-waf.png)
 
-{% raw %}
+
 Bypassed with `{{self|attr("\x5f\x5fdict\x5f\x5f")}}` 
 {% endraw %}
 
