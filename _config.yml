@@ -72,7 +72,7 @@ theme_mode: dark
 img_cdn:
 
 # the avatar on sidebar, support local or CORS resources
-avatar: https://tryhackme-images.s3.amazonaws.com/user-avatars/c4c5a25aa8b166a45e964e7c04bbb282.png
+avatar: https://raw.githubusercontent.com/jmrcsnchz/jmrcsnchz.github.io/main/assets/headshot.png
 
 # boolean type, the global switch for TOC in posts.
 toc: true
