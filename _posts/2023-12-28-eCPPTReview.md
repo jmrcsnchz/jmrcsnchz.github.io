@@ -1,8 +1,8 @@
 ---
 title: eCPPT Review - 2023
 date: 2023-12-28
-categories: [Certification Reviews]
-tags: [eCPPT, Certifications, INE, Penetration Testing]
+categories: [CertificationReviews]
+tags: [eCPPT, Certifications, INE, PenetrationTesting]
 ---
 
 Recently, I took on a personal challenge by pursuing my first practical penetration testing certification. I am excited to share that I successfully passed the Certified Professional Penetration Tester (eCPPTV2) certification exam offered by INE Security.
