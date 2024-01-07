@@ -11,6 +11,8 @@ I also would like to thank my girlfriend for designing the avatar used in this b
 ## Author of the following CVEs:
 - CVE-2023-30854
 - CVE-2023-32073
+- CVE-2024-0264
+- CVE-2024-0265
 
 ## Certifications:
 - [Certified Professional Penetration Tester (eCPPT)](https://certs.ine.com/5f68682c-9c45-4fd4-b183-3a9c2b160d2e)
