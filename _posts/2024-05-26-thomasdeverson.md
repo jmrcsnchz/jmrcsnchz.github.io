@@ -1,5 +1,5 @@
 ---
-title: Thomas DEVerson - NahamconCTF 2023
+title: Thomas DEVerson - NahamconCTF 2024
 date: 2024-05-26
 categories: [CTF Writeups]
 tags: [CTF, NahamconCTF 2024]
