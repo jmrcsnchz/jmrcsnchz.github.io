@@ -1,5 +1,5 @@
 ---
-title: Hack Smarter Range: DarkHaven Writeup
+title: Hack Smarter Range - DarkHaven Writeup
 date: 2026-04-23
 categories: [CTF Writeups]
 tags: [CTF, Active Directory]
@@ -128,7 +128,7 @@ Impacket v0.13.0 - Copyright Fortra, LLC and its affiliated companies
 [!] Press help for extra shell commands
 C:\>
 ```
-#### Pillaging
+**Pillaging**
 
 After some pillaging, credentials of the domain administrator `ldap_svc` was obtained on the Powershell history of CA's local administrator:
 
@@ -179,7 +179,7 @@ darkhaven\ldap_svc
 
 ```
 
-#### Pillaging
+**Pillaging**
 
 On the administrator's desktop, an executable `ldap_sync.exe` was found
 
@@ -238,7 +238,7 @@ DarkHavenLDAPSync
 ================================================
 ```
 
-# Subnet 1 - DARKHAVEN.TECH
+## Subnet 1 - DARKHAVEN.TECH
 The obtained credentials were sprayed against the two domain controllers located in Subnet 1.
 ```bash
 └─$ nxc winrm 10.10.10.0/25 -u ldap_svc -p 'D<REDACTED>24!'
